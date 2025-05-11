@@ -33,3 +33,40 @@
     column-width: 100%;   
   }
 }
+
+/*model*/
+.model {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    transition: opacity .4s ease, visibility .4s ease, transform .5s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0);
+    overflow: hidden;
+    z-index: 999;
+}
+
+.model.open {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.model img {
+    max-width: 90vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    display: block;
+    box-sizing: border-box;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}

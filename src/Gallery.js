@@ -1,5 +1,7 @@
-import React from 'react';
-import './Gallery.css'
+import React, { useState } from 'react';
+import CloseIcon from '@mui/icons-material/Close';
+import './Gallery.css';
+
 import Img1 from './img/img1.jpg';
 import Img2 from './img/img2.jpg';
 import Img3 from './img/img3.jpg';
@@ -19,14 +21,32 @@ const Gallery = () => {
     { id: 7, imgSrc: Img7 },
   ];
 
+  const [model, setModel] = useState(false);
+  const [tempimgSrc, setTempImgSrc] = useState('');
+
+  const getImg = (imgSrc) => {
+    setTempImgSrc(imgSrc);
+    setModel(true);
+  };
+
   return (
-    <div className="gallery">
-      {data.map((item, index) => (
-        <div className="pics" key={index}>
-          <img src={item.imgSrc} alt={`img-${index}`} style={{ width: '100%' }} />
-        </div>
-      ))}
-    </div>
+    <>
+      <div className={model ? "model open" : "model"}>
+        <img src={tempimgSrc} alt="enlarged-img" />
+        <CloseIcon 
+          className="close-icon" 
+          onClick={() => setModel(false)} 
+        />
+      </div>
+
+      <div className="gallery">
+        {data.map((item, index) => (
+          <div className="pics" key={index} onClick={() => getImg(item.imgSrc)}>
+            <img src={item.imgSrc} alt={`img-${index}`} style={{ width: '100%' }} />
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 

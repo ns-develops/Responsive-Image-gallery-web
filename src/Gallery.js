@@ -3,7 +3,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import './Gallery.css';
 
 
-
 import Img3 from './img/img3.jpg';
 import Img5 from './img/img5.jpg';
 import Img7 from './img/img7.jpg';
